@@ -27,6 +27,7 @@ import androidx.compose.ui.res.vectorResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.atom.myapp.ui.theme.MyAppTheme
+import coil3.compose.AsyncImage
 
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -56,11 +57,12 @@ fun Pantalla(){
                 contentScale = ContentScale.Fit,
                 modifier= Modifier.size(300.dp)
             )
-            Spacer(modifier=Modifier.width(20.dp))
-            Image(
-                imageVector= ImageVector.vectorResource(R.drawable.new_england_patriots_logo),
-                contentDescription = "The Best",
-                contentScale= ContentScale.Fit
+            Spacer(modifier= Modifier.width(20.dp))
+            AsyncImage(
+                model="https://i.pinimg.com/736x/f8/01/71/f801716d5be112d2a9b48da3eb663c01.jpg",
+                contentDescription = "Imagen tomada de Internet",
+                modifier = Modifier.size(50.dp),
+                contentScale = ContentScale.Crop
             )
     }
 }
