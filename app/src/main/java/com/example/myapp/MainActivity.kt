@@ -12,6 +12,7 @@ import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.wrapContentSize
+import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.material3.Button
 import androidx.compose.material3.FloatingActionButton
 import androidx.compose.material3.Icon
@@ -115,7 +116,9 @@ fun BotonIcono(){
 fun BotonFlotante(){
     FloatingActionButton(onClick = {},
                          containerColor = Color.Red,
-                         contentColor = Color.Blue) {
+                         contentColor = Color.Blue,
+                         shape = CircleShape
+    ) {
         Icon(
             painter=painterResource(R.drawable.home),
             contentDescription = "",
