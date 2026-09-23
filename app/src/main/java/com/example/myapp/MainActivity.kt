@@ -4,20 +4,25 @@ import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
+import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.Row
+import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.size
+import androidx.compose.foundation.layout.width
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.example.myapp.ui.theme.MyAppTheme
@@ -42,7 +47,7 @@ class MainActivity : ComponentActivity() {
         setContent {
             MyAppTheme {
                 Scaffold(modifier = Modifier.fillMaxSize()) { innerPadding ->
-                    Screen()
+                    Screen(innerPadding = innerPadding)
                 }
             }
         }
@@ -65,12 +70,25 @@ fun Screen(innerPadding: PaddingValues = PaddingValues(0.dp)){
             modifier = Modifier
                 .fillMaxWidth()
                 .height(60.dp)
-                .background(Surface),
-            horizontalArrangement = Arrangement.Center,
+                .background(Surface)
+                .padding(horizontal = 16.dp),
+            horizontalArrangement = Arrangement.Start,
             verticalAlignment = Alignment.CenterVertically
         ) {
             //Contenido del header
-            Text(text = "Header de la app", color = TextPrimary)
+
+            //Imagen del logo
+            Image(
+                painter = painterResource(id= R.drawable.logoapp),
+                contentDescription = "Logo de la app",
+                modifier = Modifier.size(32.dp)
+            )
+
+            //Espaciador entre logo y nombre
+            Spacer(modifier = Modifier.width(8.dp))
+
+
+            Text(text = "Currency App", color = TextPrimary)
         }
 
         //========== Main ==========
