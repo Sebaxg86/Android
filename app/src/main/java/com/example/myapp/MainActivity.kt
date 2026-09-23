@@ -4,6 +4,7 @@ import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
+import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.PaddingValues
@@ -21,6 +22,19 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.example.myapp.ui.theme.MyAppTheme
 
+//Import de colores
+import com.example.myapp.ui.theme.Background
+import com.example.myapp.ui.theme.Surface
+import com.example.myapp.ui.theme.CardColor
+import com.example.myapp.ui.theme.Primary
+import com.example.myapp.ui.theme.Accent
+import com.example.myapp.ui.theme.Positive
+import com.example.myapp.ui.theme.Negative
+import com.example.myapp.ui.theme.TextPrimary
+import com.example.myapp.ui.theme.TextSecondary
+import com.example.myapp.ui.theme.DividerColor
+
+
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -28,7 +42,7 @@ class MainActivity : ComponentActivity() {
         setContent {
             MyAppTheme {
                 Scaffold(modifier = Modifier.fillMaxSize()) { innerPadding ->
-
+                    Screen()
                 }
             }
         }
@@ -43,42 +57,46 @@ fun Screen(innerPadding: PaddingValues = PaddingValues(0.dp)){
         modifier = Modifier
             .fillMaxSize()
             .padding(innerPadding)
+            .background(Background)
     ) {
 
         //========== Header ==========
         Row(
             modifier = Modifier
                 .fillMaxWidth()
-                .height(60.dp),
+                .height(60.dp)
+                .background(Surface),
             horizontalArrangement = Arrangement.Center,
             verticalAlignment = Alignment.CenterVertically
         ) {
             //Contenido del header
-            Text(text = "Header de la app")
+            Text(text = "Header de la app", color = TextPrimary)
         }
 
         //========== Main ==========
         Row(
             modifier = Modifier
                 .fillMaxWidth()
+                .background(Background)
                 .weight(1f),
             horizontalArrangement = Arrangement.Center,
             verticalAlignment = Alignment.CenterVertically
         ) {
             //Contenido del main
-            Text(text = "Contenido del main")
+            Text(text = "Contenido del main", color = TextPrimary)
         }
 
         //========== Footer ==========
         Row(
             modifier = Modifier
                 .fillMaxWidth()
+                .background(Surface)
                 .height(50.dp),
             horizontalArrangement = Arrangement.Center,
             verticalAlignment = Alignment.CenterVertically
         ) {
             //Contenido del footer
-            Text(text="Contenido del footer")
+            Text(text="Contenido del footer", color = TextPrimary)
         }
     }
 }
